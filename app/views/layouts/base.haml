@@ -1,0 +1,32 @@
+= "<!DOCTYPE html>"
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => "text/html; charset=iso-8859-1"}
+    %title Искра
+    = stylesheet_link_tag "base"
+    = javascript_include_tag :defaults
+  %body
+    #all
+      #head
+        Р“Р°Р·РµС‚Р° "РСЃРєСЂР°"
+      #info
+        РЎРµРіРѕРґРЅСЏ
+        - date = Time.now.to_date
+        - I18n.locale = "ru"
+        = localize(date, {:format => :long})
+        &middot
+        РџРѕРіРѕРґР° 
+      #nav
+        %span#nav_a
+          = link_to_unless_current 'Главная', '/'
+        %span#nav_a
+          = link_to_unless_current 'Добавить объявление', :new_ad
+        %span#nav_a
+          = link_to_unless_current 'Помощь', '/help'
+        %span#nav_a
+          = link_to_unless_current 'О нас', '/about'
+      #body
+        = yield
+      #footer
+        &copy; Iscra LTD &middot; Registration 5849259 &middot; London &middot; 2006-2010
+
